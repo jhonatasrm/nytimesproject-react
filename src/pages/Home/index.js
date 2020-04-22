@@ -9,7 +9,8 @@ export default class Home extends Component {
     this.state = {
       newsScience: 0,
       newsTechnology: 0,
-      isLoading: true,
+      isLoadingScience: true,
+      isLoadingTechnology: true,
     };
   }
 
@@ -20,26 +21,48 @@ export default class Home extends Component {
   }
 
   loadScience = async () => {
-    await articlesScience.then((data) => {
-      this.setState({ newsScience: data.num_results, isLoading: false });
-    });
+    await articlesScience
+      .then((data) => {
+        this.setState({
+          newsScience: data.num_results,
+          isLoadingScience: false,
+        });
+      })
+      .catch((error) => {
+        console.log('Error in load Science articles ', error);
+        this.setState({ isLoadingScience: false });
+      });
   };
 
   loadTechnology = async () => {
-    await articlesTechnology.then((data) => {
-      this.setState({ newsTechnology: data.num_results });
-    });
+    await articlesTechnology
+      .then((data) => {
+        this.setState({
+          newsTechnology: data.num_results,
+          isLoadingTechnology: false,
+        });
+      })
+      .catch((error) => {
+        console.log('Error in load Technology articles ', error);
+        this.setState({ isLoadingTechnology: false });
+      });
   };
 
   render() {
-    const { isLoading, newsScience, newsTechnology } = this.state;
+    const {
+      isLoadingScience,
+      isLoadingTechnology,
+      newsScience,
+      newsTechnology,
+    } = this.state;
     return (
       <>
         <Header />
         <CardHome
           totalScience={newsScience}
           totalTechnology={newsTechnology}
-          isLoading={isLoading}
+          isLoadingScience={isLoadingScience}
+          isLoadingTechnology={isLoadingTechnology}
         />
       </>
     );

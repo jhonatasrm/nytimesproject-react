@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
 import {
-  CardContent, Typography, Box, CardMedia,
+  CardContent, Typography, Box, CardMedia
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ModalArticle from '../ModalArticle';
@@ -77,7 +77,10 @@ export default function CardArticle(props) {
           >
             {props.title}
           </Typography>
-          <Typography className={classes.cardTextSecondary} color="textSecondary">
+          <Typography
+            className={classes.cardTextSecondary}
+            color="textSecondary"
+          >
             {!props.author ? 'By Anonymous' : props.author}
           </Typography>
         </CardContent>

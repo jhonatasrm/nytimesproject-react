@@ -1,6 +1,14 @@
 import React from 'react';
 import {
-  Button, Box, CardMedia, Dialog, DialogActions, DialogContent, DialogTitle, makeStyles, Typography,
+  Button,
+  Box,
+  CardMedia,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  makeStyles,
+  Typography,
 } from '@material-ui/core';
 
 const useStyles = makeStyles({
@@ -36,7 +44,13 @@ export default function ModalArticle(props) {
 
   return (
     <Box className={classes.modalButton}>
-      <Button variant="contained" color="primary" onClick={handleClickOpen} disableElevation title="Read more">
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleClickOpen}
+        disableElevation
+        title="Read more"
+      >
         +
       </Button>
       <Dialog
@@ -46,27 +60,21 @@ export default function ModalArticle(props) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">{props.title}</DialogTitle>
-        <CardMedia
-          src={props.image}
-          title={props.caption}
-        />
+        <CardMedia src={props.image} title={props.caption} />
         <DialogContent>
-          <Typography className={classes.modalTextSecondary} color="textSecondary">
+          <Typography
+            className={classes.modalTextSecondary}
+            color="textSecondary"
+          >
             {!props.author ? 'By Anonymous' : props.author}
           </Typography>
-          <Typography
-            variant="body2"
-            component="p"
-            align="justify"
-          >
+          <Typography variant="body2" component="p" align="justify">
             {props.description}
           </Typography>
         </DialogContent>
         <DialogActions className={classes.modalAlignButtons}>
           <a href={props.url} target="_blank" rel="noopener noreferrer">
-            <Button color="primary">
-              Full Article
-            </Button>
+            <Button color="primary">Full Article</Button>
           </a>
           <Button onClick={handleClose} color="primary">
             Close

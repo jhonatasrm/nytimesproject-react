@@ -16,7 +16,11 @@ export default function NotFound() {
   return (
     <>
       <Header />
-      <Typography gutterBottom variant="h6" className={classes.pageNotFoundMargin}>
+      <Typography
+        gutterBottom
+        variant="h6"
+        className={classes.pageNotFoundMargin}
+      >
         Page not found!
       </Typography>
     </>

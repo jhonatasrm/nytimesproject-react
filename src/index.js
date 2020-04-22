@@ -10,5 +10,5 @@ ReactDOM.render(
     <Favicon url={urlIcon} />
     <Routes />
   </div>,
-  global.document.getElementById('root'),
+  document.getElementById('root'),
 );

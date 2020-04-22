@@ -20,15 +20,23 @@ export default class News extends Component {
   }
 
   loadScience = async () => {
-    await articlesScience.then((data) => {
-      this.setState({ newsScience: data.results });
-    });
+    await articlesScience
+      .then((data) => {
+        this.setState({ newsScience: data.results });
+      })
+      .catch((error) => {
+        console.log('Error in load Science articles ', error);
+      });
   };
 
   loadTechnology = async () => {
-    await articlesTechnology.then((data) => {
-      this.setState({ newsTechnology: data.results });
-    });
+    await articlesTechnology
+      .then((data) => {
+        this.setState({ newsTechnology: data.results });
+      })
+      .catch((error) => {
+        console.log('Error in load Technology articles ', error);
+      });
   };
 
   render() {
