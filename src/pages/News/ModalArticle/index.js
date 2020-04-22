@@ -4,16 +4,21 @@ import {
 } from '@material-ui/core';
 
 const useStyles = makeStyles({
-  buttonModal: {
+  modalButton: {
     display: 'flex',
     justifyContent: 'flex-end',
     marginTop: -21,
     height: 28,
   },
-  alignButtonsDialog: {
+  modalAlignButtons: {
     display: 'flex',
     justifyContent: 'space-between',
     margin: 8,
+  },
+  modalTextSecondary: {
+    marginTop: -12,
+    marginBottom: 8,
+    fontSize: 14,
   },
 });
 
@@ -30,7 +35,7 @@ export default function ModalArticle(props) {
   };
 
   return (
-    <Box className={classes.buttonModal}>
+    <Box className={classes.modalButton}>
       <Button variant="contained" color="primary" onClick={handleClickOpen} disableElevation title="Read more">
         +
       </Button>
@@ -46,6 +51,9 @@ export default function ModalArticle(props) {
           title={props.caption}
         />
         <DialogContent>
+          <Typography className={classes.modalTextSecondary} color="textSecondary">
+            {!props.author ? 'By Anonymous' : props.author}
+          </Typography>
           <Typography
             variant="body2"
             component="p"
@@ -54,7 +62,7 @@ export default function ModalArticle(props) {
             {props.description}
           </Typography>
         </DialogContent>
-        <DialogActions className={classes.alignButtonsDialog}>
+        <DialogActions className={classes.modalAlignButtons}>
           <a href={props.url} target="_blank" rel="noopener noreferrer">
             <Button color="primary">
               Full Article

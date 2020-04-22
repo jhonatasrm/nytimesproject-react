@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Header = () => {
+export default function Header() {
   const classes = useStyles();
   return (
     <AppBar>
@@ -36,5 +36,4 @@ const Header = () => {
       </Toolbar>
     </AppBar>
   );
-};
-export default Header;
+}

@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { articlesScience, articlesTechnology } from "../../services/api";
-import Header from "../../components/Header";
-import CardHome from "./CardHome";
+import React, { Component } from 'react';
+import { articlesScience, articlesTechnology } from '../../services/api';
+import Header from '../../components/Header';
+import CardHome from './CardHome';
 
 export default class Home extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    document.title = "Home";
+    document.title = 'Home';
     this.loadScience();
     this.loadTechnology();
   }

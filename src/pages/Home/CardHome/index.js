@@ -1,34 +1,39 @@
 import React from 'react';
 import {
-  Typography, CardContent, Card, Box,
+  Typography, CardContent, Card, Box, makeStyles,
 } from '@material-ui/core';
 import Loading from '../../../components/Loading';
 
-const CardHome = (props) => {
+const useStyles = makeStyles({
+  cardHome: {
+    margin: '0 auto',
+    display: 'block',
+    float: 'none',
+    marginTop: '100px',
+    paddingTop: '40px',
+    maxWidth: '90%',
+    boxShadow: '2px -1px 6px 1px #E5E5E5',
+  },
+  cardBox: {
+    display: 'flex',
+    textAlign: 'center',
+    justifyContent: 'center',
+  },
+  cardDistanceBetweenInfo: {
+    marginTop: '50px',
+  },
+});
+
+export default function CardHome(props) {
   const { isLoading, totalScience, totalTechnology } = props;
+  const classes = useStyles();
 
   return (
     <>
-      <Card
-        style={{
-          margin: '0 auto',
-          display: 'block',
-          float: 'none',
-          marginTop: '100px',
-          paddingTop: '40px',
-          maxWidth: '90%',
-          boxShadow: '2px -1px 6px 1px #E5E5E5',
-        }}
-      >
+      <Card className={classes.cardHome}>
         <CardContent>
           {isLoading ? (
-            <Box
-              style={{
-                display: 'flex',
-                textAlign: 'center',
-                justifyContent: 'center',
-              }}
-            >
+            <Box className={classes.cardBox}>
               <Loading type="bars" color="#3f51b5" />
             </Box>
           ) : (
@@ -42,7 +47,7 @@ const CardHome = (props) => {
               <Typography
                 gutterBottom
                 variant="h5"
-                style={{ marginTop: '50px' }}
+                className={classes.cardDistanceBetweenInfo}
               >
                 Articles about Technology found
               </Typography>
@@ -55,5 +60,4 @@ const CardHome = (props) => {
       </Card>
     </>
   );
-};
-export default CardHome;
+}
