@@ -9,7 +9,7 @@ import LinkWrapper from '../../store/link-wrapper';
 
 const useStyles = makeStyles(() => ({
   linkHeader: {
-    color: '#b3b3b3',
+    color: '#D1D1D1',
     textDecoration: 'none',
     marginLeft: '20px',
     '&:hover': {
