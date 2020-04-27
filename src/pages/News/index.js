@@ -19,8 +19,8 @@ export default class News extends Component {
     this.loadTechnology();
   }
 
-  loadScience = async () => {
-    await articlesScience
+  loadScience = () => {
+    articlesScience
       .then((data) => {
         this.setState({ newsScience: data.results });
       })
@@ -29,8 +29,8 @@ export default class News extends Component {
       });
   };
 
-  loadTechnology = async () => {
-    await articlesTechnology
+  loadTechnology = () => {
+    articlesTechnology
       .then((data) => {
         this.setState({ newsTechnology: data.results });
       })

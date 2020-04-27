@@ -20,8 +20,8 @@ export default class Home extends Component {
     this.loadTechnology();
   }
 
-  loadScience = async () => {
-    await articlesScience
+  loadScience = () => {
+    articlesScience
       .then((data) => {
         this.setState({
           newsScience: data.num_results,
@@ -34,8 +34,8 @@ export default class Home extends Component {
       });
   };
 
-  loadTechnology = async () => {
-    await articlesTechnology
+  loadTechnology = () => {
+    articlesTechnology
       .then((data) => {
         this.setState({
           newsTechnology: data.num_results,
