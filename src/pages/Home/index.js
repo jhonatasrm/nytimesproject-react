@@ -12,6 +12,9 @@ export default class Home extends Component {
       isLoadingScience: true,
       isLoadingTechnology: true,
     };
+
+    this.loadScience = this.loadScience.bind(this);
+    this.loadTechnology = this.loadTechnology.bind(this);
   }
 
   componentDidMount() {

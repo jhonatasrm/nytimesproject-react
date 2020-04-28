@@ -11,6 +11,9 @@ export default class News extends Component {
       newsScience: [],
       newsTechnology: [],
     };
+
+    this.loadScience = this.loadScience.bind(this);
+    this.loadTechnology = this.loadTechnology.bind(this);
   }
 
   componentDidMount() {
@@ -41,14 +44,16 @@ export default class News extends Component {
 
   render() {
     const { newsScience, newsTechnology } = this.state;
+    // concatenada a data de criação com o valor de index do map 'article.created_date.concat(index)'
+    // para utilizar como key, pois a API não conta com um id
 
     return (
       <Fragment>
         <Header />
         <Grid container style={{ marginTop: 60 }}>
-          {newsScience.map((article) => (
+          {newsScience.map((article, index) => (
             <Grid
-              key={article.created_date}
+              key={article.created_date.concat(index)}
               item
               xs={12}
               sm={6}
@@ -67,9 +72,9 @@ export default class News extends Component {
               />
             </Grid>
           ))}
-          {newsTechnology.map((article) => (
+          {newsTechnology.map((article, index) => (
             <Grid
-              key={article.created_date}
+              key={article.created_date.concat(index)}
               item
               xs={12}
               sm={6}

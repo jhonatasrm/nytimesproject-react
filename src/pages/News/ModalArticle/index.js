@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Button,
   Box,
-  CardMedia,
   Dialog,
   DialogActions,
   DialogContent,
@@ -60,7 +59,6 @@ export default function ModalArticle(props) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">{props.title}</DialogTitle>
-        <CardMedia src={props.image} title={props.caption} />
         <DialogContent>
           <Typography
             className={classes.modalTextSecondary}
