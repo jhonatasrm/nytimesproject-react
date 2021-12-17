@@ -52,46 +52,54 @@ export default class News extends Component {
         <Header />
         <Grid container style={{ marginTop: 60 }}>
           {newsScience.map((article, index) => (
-            <Grid
-              key={article.created_date.concat(index)}
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              xl={3}
-              style={{ display: 'flex', alignItems: 'stretch' }}
-            >
-              <CardArticle
-                image={article.multimedia[0].url}
-                caption={article.multimedia[0].caption}
-                title={article.title}
-                author={article.byline}
-                description={article.abstract}
-                url={article.url}
-                category="Science"
-              />
-            </Grid>
+            article.multimedia
+              ? (
+                <Grid
+                  key={article.created_date.concat(index)}
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  xl={3}
+                  style={{ display: 'flex', alignItems: 'stretch' }}
+                >
+                  <CardArticle
+                    image={!article.multimedia[0].url ? '' : article.multimedia[0].url}
+                    caption={!article.multimedia[0].caption ? '' : article.multimedia[0].caption}
+                    title={article.title}
+                    author={article.byline}
+                    description={article.abstract}
+                    url={article.url}
+                    category="Science"
+                  />
+                </Grid>
+              )
+              : ''
           ))}
           {newsTechnology.map((article, index) => (
-            <Grid
-              key={article.created_date.concat(index)}
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              xl={3}
-              style={{ display: 'flex', alignItems: 'stretch' }}
-            >
-              <CardArticle
-                image={article.multimedia[0].url}
-                caption={article.multimedia[0].caption}
-                title={article.title}
-                author={article.byline}
-                description={article.abstract}
-                url={article.url}
-                category="Technology"
-              />
-            </Grid>
+            article.multimedia
+              ? (
+                <Grid
+                  key={article.created_date.concat(index)}
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  xl={3}
+                  style={{ display: 'flex', alignItems: 'stretch' }}
+                >
+                  <CardArticle
+                    image={!article.multimedia[0].url ? '' : article.multimedia[0].url}
+                    caption={!article.multimedia[0].caption ? '' : article.multimedia[0].caption}
+                    title={article.title}
+                    author={article.byline}
+                    description={article.abstract}
+                    url={article.url}
+                    category="Technology"
+                  />
+                </Grid>
+              )
+              : ''
           ))}
         </Grid>
       </Fragment>
